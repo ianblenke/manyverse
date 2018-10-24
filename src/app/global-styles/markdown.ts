@@ -28,7 +28,7 @@ const $ = createElement;
 
 const styles = StyleSheet.create({
   text: {
-    color: Palette.brand.text,
+    color: Palette.text,
   },
 
   paragraph: {
@@ -43,39 +43,39 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginVertical: Dimens.verticalSpaceNormal,
     fontSize: Typ.baseSize * Typ.scaleUp * Typ.scaleUp,
-    color: Palette.brand.text,
+    color: Palette.text,
   },
 
   heading2: {
     fontWeight: 'bold',
     marginVertical: Dimens.verticalSpaceNormal,
     fontSize: Typ.baseSize * Typ.scaleUp,
-    color: Palette.brand.text,
+    color: Palette.text,
   },
 
   heading3: {
     fontWeight: 'bold',
     marginVertical: Dimens.verticalSpaceSmall,
     fontSize: Typ.baseSize,
-    color: Palette.brand.text,
+    color: Palette.text,
   },
 
   heading4: {
     fontWeight: 'bold',
     fontSize: Typ.baseSize * Typ.scaleDown,
-    color: Palette.brand.text,
+    color: Palette.text,
   },
 
   heading5: {
     fontWeight: 'bold',
     fontSize: Typ.baseSize * Typ.scaleDown * Typ.scaleDown,
-    color: Palette.brand.text,
+    color: Palette.text,
   },
 
   heading6: {
     fontWeight: 'bold',
     fontSize: Typ.baseSize * Typ.scaleDown * Typ.scaleDown * Typ.scaleDown,
-    color: Palette.brand.text,
+    color: Palette.text,
   },
 
   em: {
@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
   },
 
   inlineCode: {
-    backgroundColor: Palette.brand.textWeakBackground,
-    color: Palette.brand.textWeak,
+    backgroundColor: Palette.backgroundTextWeak,
+    color: Palette.textWeak,
     paddingLeft: 4,
     paddingRight: 4,
     borderRadius: 2,
@@ -104,15 +104,15 @@ const styles = StyleSheet.create({
   },
 
   blockquote: {
-    backgroundColor: Palette.brand.textWeakBackground,
+    backgroundColor: Palette.backgroundTextWeak,
     borderLeftWidth: 3,
-    borderLeftColor: Palette.colors.gray5,
+    borderLeftColor: Palette.backgroundTextWeakStrong,
     paddingLeft: Dimens.horizontalSpaceSmall,
     paddingRight: 1,
   },
 
   codeBlock: {
-    backgroundColor: Palette.brand.textWeakBackground,
+    backgroundColor: Palette.backgroundTextWeak,
     paddingTop: 3,
     paddingBottom: 3,
     paddingLeft: 5,
@@ -121,14 +121,14 @@ const styles = StyleSheet.create({
   },
 
   codeText: {
-    color: Palette.brand.textWeak,
+    color: Palette.textWeak,
     fontSize: Typ.fontSizeSmall,
     fontWeight: 'normal',
     fontFamily: 'monospace',
   },
 
   horizontalLine: {
-    backgroundColor: Palette.colors.gray4,
+    backgroundColor: Palette.textVeryWeak,
     height: 2,
     marginTop: Dimens.verticalSpaceSmall,
     marginBottom: Dimens.verticalSpaceSmall,
@@ -201,7 +201,7 @@ const renderers = {
         style: {
           marginTop: Dimens.verticalSpaceSmall,
           marginBottom: Dimens.verticalSpaceSmall,
-          backgroundColor: Palette.colors.gray1,
+          backgroundColor: Palette.backgroundVoidWeak,
           width,
           height,
         },
