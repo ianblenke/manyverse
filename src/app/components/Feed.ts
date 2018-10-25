@@ -60,6 +60,7 @@ type Props = {
   selfFeedId: FeedId;
   EmptyComponent?: ReactElement<any>;
   style?: any;
+  onInitialPullDone?: () => void;
   onRefresh?: () => void;
   onPressLike?: (ev: {msgKey: MsgId; like: boolean}) => void;
   onPressReply?: (ev: {msgKey: MsgId; rootKey: MsgId}) => void;
@@ -134,6 +135,7 @@ export default class Feed extends PureComponent<Props, State> {
 
   public render() {
     const {
+      onInitialPullDone,
       onRefresh,
       onPressLike,
       onPressReply,
@@ -155,6 +157,7 @@ export default class Feed extends PureComponent<Props, State> {
       pullAmount: 1,
       numColumns: 1,
       refreshable: true,
+      onInitialPullDone,
       onRefresh,
       onScroll: this._onScroll,
       scrollToOffset$: (scrollToTop$ || xs.never())
