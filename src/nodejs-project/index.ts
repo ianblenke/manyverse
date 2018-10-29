@@ -15,6 +15,9 @@ import syncingPlugin = require('./plugins/syncing');
 import blobsFromPathPlugin = require('./plugins/blobsFromPath');
 import manifest = require('./manifest');
 
+const BluetoothManager = require('ssb-mobile-bluetooth-manager');
+const Bluetooth = require('ssb-bluetooth');
+
 const appDataDir = rnBridge.app.datadir();
 const ssbPath = path.resolve(appDataDir, '.ssb');
 if (!fs.existsSync(ssbPath)) {
@@ -33,10 +36,12 @@ config.connections = {
     net: [{scope: 'private', transform: 'shs', port: 26831}],
     dht: [{scope: 'public', transform: 'shs', port: 26832}],
     channel: [{scope: 'device', transform: 'noauth'}],
+    bluetooth: [{scope: 'public', transform: 'noauth'}],
   },
   outgoing: {
     net: [{transform: 'shs'}],
     dht: [{transform: 'shs'}],
+    bluetooth: [{scope: 'public', transform: 'noauth'}],
   },
 };
 
@@ -55,10 +60,13 @@ function dhtTransport(_sbot: any) {
   });
 }
 
+const bluetoothManager: any = BluetoothManager();
+
 require('scuttlebot/index')
   .use(rnChannelTransport)
   .use(require('ssb-dht-invite'))
   .use(dhtTransport)
+  .use(Bluetooth(bluetoothManager))
   .use(require('scuttlebot/plugins/master'))
   .use(require('@staltz/sbot-gossip'))
   .use(require('scuttlebot/plugins/replicate'))
